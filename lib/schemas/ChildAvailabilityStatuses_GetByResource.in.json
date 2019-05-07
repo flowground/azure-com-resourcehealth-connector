@@ -1,0 +1,21 @@
+{
+    "type": "object",
+    "properties": {
+        "resourceUri": {
+            "required": true,
+            "type": "string"
+        },
+        "api_version": {
+            "required": true,
+            "type": "string"
+        },
+        "_filter": {
+            "required": false,
+            "type": "string"
+        },
+        "_expand": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

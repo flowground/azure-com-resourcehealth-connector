@@ -1,0 +1,186 @@
+{
+    "title": "Microsoft.ResourceHealth",
+    "description": "The Resource Health Client.",
+    "docsUrl": "",
+    "url": "https://api.apis.guru/v2/specs/azure.com/resourcehealth/2017-07-01/swagger.json",
+    "envVars": {
+        "OAUTH_CLIENT_ID": {
+            "description": "OAuth Client ID"
+        },
+        "OAUTH_CLIENT_SECRET": {
+            "description": "OAuth Client Secret"
+        }
+    },
+    "credentials": {
+        "fields": {
+            "server": {
+                "label": "Server",
+                "viewClass": "SelectView",
+                "model": [
+                    "https://management.azure.com/",
+                    "--- Custom URL"
+                ],
+                "required": true
+            },
+            "otherServer": {
+                "label": "Custom Server URL",
+                "viewClass": "TextFieldView"
+            },
+            "azure_auth": {
+                "label": "Azure Active Directory OAuth2 Flow",
+                "viewClass": "OAuthFieldView"
+            }
+        },
+        "oauth2": {
+            "client_id": "{{OAUTH_CLIENT_ID}}",
+            "client_secret": "{{OAUTH_CLIENT_SECRET}}",
+            "auth_uri": "https://login.microsoftonline.com/common/oauth2/authorize"
+        }
+    },
+    "triggers": {
+        "startFlow": {
+            "main": "./lib/triggers/startFlow.js",
+            "type": "polling",
+            "title": "Start Flow",
+            "fields": {}
+        }
+    },
+    "actions": {
+        "Operations_List": {
+            "main": "./lib/actions/Operations_List.js",
+            "title": "Lists available operations for the resourcehealth resource provider",
+            "description": "Lists available operations for the resourcehealth resource provider",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/Operations_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AvailabilityStatuses_ListBySubscriptionId": {
+            "main": "./lib/actions/AvailabilityStatuses_ListBySubscriptionId.js",
+            "title": "Lists the current availability status for all the resources in the subscription. Use the nextLink property in the response to get the next page of availability statuses.",
+            "description": "Lists the current availability status for all the resources in the subscription. Use the nextLink property in the response to get the next page of availability statuses.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AvailabilityStatuses_ListBySubscriptionId.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AvailabilityStatuses_ListByResourceGroup": {
+            "main": "./lib/actions/AvailabilityStatuses_ListByResourceGroup.js",
+            "title": "Lists the current availability status for all the resources in the resource group. Use the nextLink property in the response to get the next page of availability statuses.",
+            "description": "Lists the current availability status for all the resources in the resource group. Use the nextLink property in the response to get the next page of availability statuses.",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AvailabilityStatuses_ListByResourceGroup.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AvailabilityStatuses_List": {
+            "main": "./lib/actions/AvailabilityStatuses_List.js",
+            "title": "Lists all historical availability transitions and impacting events for a single resource. Use the nextLink property in the response to get the next page of availability status",
+            "description": "Lists all historical availability transitions and impacting events for a single resource. Use the nextLink property in the response to get the next page of availability status",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AvailabilityStatuses_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "AvailabilityStatuses_GetByResource": {
+            "main": "./lib/actions/AvailabilityStatuses_GetByResource.js",
+            "title": "Gets current availability status for a single resource",
+            "description": "Gets current availability status for a single resource",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/AvailabilityStatuses_GetByResource.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ChildAvailabilityStatuses_List": {
+            "main": "./lib/actions/ChildAvailabilityStatuses_List.js",
+            "title": "Lists the historical availability statuses for a single child resource. Use the nextLink property in the response to get the next page of availability status",
+            "description": "Lists the historical availability statuses for a single child resource. Use the nextLink property in the response to get the next page of availability status",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ChildAvailabilityStatuses_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ChildAvailabilityStatuses_GetByResource": {
+            "main": "./lib/actions/ChildAvailabilityStatuses_GetByResource.js",
+            "title": "Gets current availability status for a single resource",
+            "description": "Gets current availability status for a single resource",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ChildAvailabilityStatuses_GetByResource.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        },
+        "ChildResources_List": {
+            "main": "./lib/actions/ChildResources_List.js",
+            "title": "Lists the all the children and its current health status for a parent resource. Use the nextLink property in the response to get the next page of children current health",
+            "description": "Lists the all the children and its current health status for a parent resource. Use the nextLink property in the response to get the next page of children current health",
+            "fields": {
+                "verbose": {
+                    "viewClass": "CheckBoxView",
+                    "label": "Debug this step (log more data)"
+                }
+            },
+            "metadata": {
+                "in": "./lib/schemas/ChildResources_List.in.json",
+                "out": {
+                    "type": "object"
+                }
+            }
+        }
+    }
+}
