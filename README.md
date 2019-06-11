@@ -5,7 +5,7 @@
 A generated **flow**ground connector for the Microsoft.ResourceHealth API (version 2017-07-01).
 
 Generated from: https://api.apis.guru/v2/specs/azure.com/resourcehealth/2017-07-01/swagger.json<br/>
-Generated at: 2019-05-07T17:38:45+03:00
+Generated at: 2019-06-11T18:14:12+03:00
 
 ## API Description
 
